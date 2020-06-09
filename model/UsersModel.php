@@ -1,58 +1,70 @@
 <?php
 
 function getAllUsers() {
-	$db = openDatabaseConnection();
+	$conn = openDatabaseConnection();
 
-	$query = $db->prepare("SELECT * FROM users");
+	$query = $conn->prepare("SELECT * FROM users");
 	$query->execute();
-
-	$db = null;
 
 	return $query->fetchAll();
 }
 
-function userRegistration() {
-    $fields = ["username", "fullname", "password", "address", "phone"];
+function getUser($id) {
+    $conn = openDatabaseConnection();
 
-    $class = [];
-    $data = [];
-    $class["username"] = $data["username"] = "";
-    $class["fullname"] = $data["fullname"] = "";
-    $class["password"] = $data["password"] = "";
-    $class["address"] = $data["address"] = "";
-    $class["phone"] = $data["phone"] = "";
-    
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $valid = true;
+    $query = $conn->prepare("SELECT * FROM users WHERE id = :id");
+    $query->bindParam(":id", $id);
+    $query->execute();
 
-        foreach ($fields as $field) {
-            if (isset($_POST[$field]) && empty($_POST[$field])) {
-                $class[$field] = "is-invalid";
-                $valid = false;
-            } else {
-                $data[$field] = $_POST[$field];
-                $passwordHash = password_hash($data["password"], PASSWORD_BCRYPT, array("cost" => 12));
-            }
-        }
+    return $query->fetch();
+}
 
-        if ($valid == true) {
-            $conn = openDatabaseConnection();
+function createUser($data) {
+    $conn = openDatabaseConnection();
 
-            $query = $conn->prepare("INSERT INTO users (username, full_name, password, address, phonenumber)
-                                     VALUES (:username, :fullname, :password, :address, :phonenumber)");
-            $query->bindParam(":username", $data["username"]);
-            $query->bindParam(":fullname", $data["fullname"]);
-            $query->bindParam(":password", $passwordHash);
-            $query->bindParam(":address", $data["address"]);
-            $query->bindParam(":phonenumber", $data["phone"]);
+    $query = $conn->prepare("INSERT INTO users (name, full_name, address, phonenumber)
+                                VALUES (:name, :fullname, :address, :phonenumber)");
+    $query->bindParam(":name", $data["name"]);
+    $query->bindParam(":fullname", $data["fullname"]);
+    $query->bindParam(":address", $data["address"]);
+    $query->bindParam(":phonenumber", $data["phone"]);
 
-            $query->execute();
+    $query->execute();
+}
 
-            $conn = null;
-        }
+function updateUser($data, $id) {
+    $conn = openDatabaseConnection();
+
+    $query = $conn->prepare("UPDATE users
+                             SET name = :name, 
+                                 full_name = :fullname, 
+                                 address = :address, 
+                                 phonenumber = :phone 
+                             WHERE id = :id");
+    $query->bindParam(":id", $id);
+    $query->bindParam(":name", $data["name"]);
+    $query->bindParam(":fullname", $data["fullname"]);
+    $query->bindParam(":address", $data["address"]);
+    $query->bindParam(":phone", $data["phone"]);
+
+    $query->execute();
+}
+
+function deleteUser($id) {
+    $conn = openDatabaseConnection();
+
+    $query = $conn->prepare("SELECT * FROM users WHERE id = :id");
+    $query->bindParam(":id", $id);
+    $query->execute();
+    $rows = $query->rowCount();
+
+    if ($rows > 0) {
+        $query = $conn->prepare("DELETE FROM users WHERE id = :id");
+        $query->bindParam(":id", $id);
+        $result = $query->execute();
     }
 
-
+    return $result;
 }
 
 // function generateCode() {

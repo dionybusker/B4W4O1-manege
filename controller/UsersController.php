@@ -3,19 +3,35 @@
 require(ROOT . "model/UsersModel.php");
 
 function index() {
-	render("users/index", array(
-		'users' => getAllUsers()
-	));
+	$users = getAllUsers();
+	render("users/index", array("users" => $users));
 }
 
-function register() {
-	// $generateCode = generateCode();
-	userRegistration();
-	render("users/register");
+function create() {
+	render("users/create");
 }
 
-// function login() {
-// 	render("users/index", array(
-// 		'users' => getAllUsers()
-// 	));
-// }
+function store() {
+	createUser($_POST);
+	header("Location: " . URL);
+}
+
+function edit($id) {
+	$user = getUser($id);
+	render("users/update", array("user" => $user));
+}
+
+function update($id) {
+	updateUser($_POST, $id);
+	header("Location: " . URL);
+}
+
+function delete($id) {
+	$user = getUser($id);
+	render("users/delete", array("user" => $user));
+}
+
+function destroy($id) {
+	deleteUser($id);
+	header("Location: " . URL);
+}
