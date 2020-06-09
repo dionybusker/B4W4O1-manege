@@ -11,9 +11,7 @@ function index() {
 function register() {
 	// $generateCode = generateCode();
 	userRegistration();
-	render("users/register", array(
-		'generateCode' => generateCode()
-	));
+	render("users/register");
 }
 
 // function login() {
