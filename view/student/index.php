@@ -5,21 +5,12 @@
 			<th>Naam</th>
 		</tr>
 		
-
-		<tr>
-			<td>99041392</td>
-			<td>Johan ter Wolde</td>
-		</tr>
-		<tr>
-			<td>99041393</td>
-			<td>Johan Vlemmix</td>
-		</tr>
-		<tr>
-			<td>99041394</td>
-			<td>Ben Vreemdeling</td>
-		</tr>
-		
-
+		<?php foreach ($students as $student) { ?>
+			<tr>
+				<td><?= $student["student_id"] ?></td>
+				<td><?= $student["student_name"] ?></td>
+			</tr>
+		<?php } ?>
 
 	</table>
 </div>
