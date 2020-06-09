@@ -15,9 +15,10 @@
 		<div class="row col-6 mx-auto">
 			<nav class="col-12 navbar navbar-expand m-0 p-0 bg-info">
 				<ul class="col-12 navbar-nav m-0 p-0">
-					<li class="col-3 nav-item m-0 p-0 btn btn-warning rounded-0"><a class="nav-link" href="<?= URL ?>home/index">Home</a></li>
-					<li class="col-3 nav-item m-0 p-0 btn btn-warning rounded-0"><a class="nav-link" href="<?= URL ?>student/index">Students</a></li>
-					<li class="col-3 nav-item m-0 p-0 btn btn-warning rounded-0"><a class="nav-link" href="<?= URL ?>users/index">Gebruikers</a></li>
+					<li class="col-3 nav-item m-0 p-0 btn btn-warning rounded-0"><a class="nav-link" href="<?php echo URL ?>home/index">Home</a></li>
+					<li class="col-3 nav-item m-0 p-0 btn btn-warning rounded-0"><a class="nav-link" href="<?php echo URL ?>student/index">Students</a></li>
+					<li class="col-3 nav-item m-0 p-0 btn btn-warning rounded-0"><a class="nav-link" href="<?php echo URL ?>users/index">Bezoekers</a></li>
+					<li class="col-3 nav-item m-0 p-0 btn btn-warning rounded-0"><a class="nav-link" href="<?php echo URL ?>horses/index">Paarden</a></li>
 				</ul>
 			</nav>
 
