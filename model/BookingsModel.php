@@ -46,6 +46,24 @@ function createBooking($data) {
     $query->execute();
 }
 
+function updateBooking($data, $id) {
+    $conn = openDatabaseConnection();
+
+    $query = $conn->prepare("UPDATE bookings
+                             SET user_id = :user,
+                                 horse_id = :horse,
+                                 time = :time,
+                                 date = :date
+                             WHERE id = :id");
+    $query->bindParam(":id", $id);
+    $query->bindParam(":user", $data["user"]);
+    $query->bindParam(":horse", $data["horse"]);
+    $query->bindParam(":time", $data["time"]);
+    $query->bindParam(":date", $data["date"]);
+
+    $query->execute();
+}
+
 function deleteBooking($id) {
     $conn = openDatabaseConnection();
 
