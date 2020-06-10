@@ -40,7 +40,7 @@ function updateHorse($data, $id) {
 
     $query = $conn->prepare("UPDATE horses
                              SET name = :name,
-                                 age = :age;
+                                 age = :age,
                                  breed = :breed,
                                  height = :height,
                                  show_jumping = :showjumping
