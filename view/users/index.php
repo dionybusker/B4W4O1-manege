@@ -3,7 +3,7 @@
 <div class="row col-12 justify-content-center">
     <?php foreach ($users as $user) { ?>
         <ul class="col-3 card navbar-nav m-2 p-0">
-            <li>Voornaam: <?php echo $user["name"] ?></li>
+            <li>Voornaam: <?php echo $user["first_name"] ?></li>
             <li>Volledige naam: <?php echo $user["full_name"] ?></li>
             <li>Adres: <?php echo $user["address"] ?></li>
             <li>Tel. nummer: +31 <?php echo $user["phonenumber"] ?> </li> <br>

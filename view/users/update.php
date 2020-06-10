@@ -2,7 +2,7 @@
 
 <form name="update" action="<?php echo URL ?>users/update/<?php echo $user["id"] ?>" method="POST">
     <label for="name">Voornaam</label>
-	<input id="name" name="name" type="text" value="<?php echo $user["name"] ?>"> <br>
+	<input id="name" name="name" type="text" value="<?php echo $user["first_name"] ?>"> <br>
 
 	<label for="fullname">Volledige naam</label>
 	<input id="fullname" name="fullname" type="text" value="<?php echo $user["full_name"] ?>"> <br>
