@@ -22,7 +22,7 @@ function getUser($id) {
 function createUser($data) {
     $conn = openDatabaseConnection();
 
-    $query = $conn->prepare("INSERT INTO users (name, full_name, address, phonenumber)
+    $query = $conn->prepare("INSERT INTO users (first_name, full_name, address, phonenumber)
                                 VALUES (:name, :fullname, :address, :phonenumber)");
     $query->bindParam(":name", $data["name"]);
     $query->bindParam(":fullname", $data["fullname"]);
@@ -36,7 +36,7 @@ function updateUser($data, $id) {
     $conn = openDatabaseConnection();
 
     $query = $conn->prepare("UPDATE users
-                             SET name = :name, 
+                             SET first_name = :name, 
                                  full_name = :fullname, 
                                  address = :address, 
                                  phonenumber = :phone 
