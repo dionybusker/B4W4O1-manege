@@ -15,7 +15,7 @@
         <?php } ?>
     </select>
 
-    <label class="col-5" for="time">Welke tijd</label>
+    <label class="col-5" for="time">Welke tijd?</label>
     <input class="col-2" type="time" name="time">
     <input class="col-3" type="date" name="date">
 
