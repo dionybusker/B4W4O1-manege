@@ -1,6 +1,6 @@
 <h1>Paard gegevens wijzigen</h1>
 
-<form name="update" action="<?php echo URL ?>horses/update/<?php echo $horse["id"] ?>" method="POST">
+<form class="col-12" name="update" action="<?php echo URL ?>horses/update/<?php echo $horse["id"] ?>" method="POST">
     <label for="name">Naam</label>
 	<input id="name" name="name" type="text" value="<?php echo $horse["name"] ?>"> <br>
 
