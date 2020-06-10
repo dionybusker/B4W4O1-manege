@@ -30,19 +30,27 @@ function store() {
     header("Location: " . URL);
 }
 
-// function edit($id) {
-// 	$user = getUser($id);
-// 	render("users/update", array("user" => $user));
-// }
+function edit($id) {
+    $booking = getBooking($id);
+    $users = getAllUsers();
+    $horses = getAllHorses();
 
-// function update($id) {
-// 	updateUser($_POST, $id);
-// 	header("Location: " . URL);
-// }
+	render("bookings/update", array(
+        "booking" => $booking,
+        "users" => $users,
+        "horses" => $horses
+    ));
+}
+
+function update($id) {
+	updateBooking($_POST, $id);
+	header("Location: " . URL);
+}
 
 function delete($id) {
-	$booking = getBooking($id);
-	render("bookings/delete", array("booking" => $booking));
+    $booking = getBooking($id);
+	render("bookings/delete", array(
+        "booking" => $booking));
 }
 
 function destroy($id) {
