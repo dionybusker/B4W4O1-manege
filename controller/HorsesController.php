@@ -4,7 +4,7 @@ require(ROOT . "model/HorsesModel.php");
 
 function index() {
     $horses = getAllHorses();
-	render("horses/index", array('horses' => $horses));
+	render("horses/index", array("horses" => $horses));
 }
 
 function create() {
