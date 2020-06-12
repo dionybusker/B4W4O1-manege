@@ -5,7 +5,12 @@
     <input class="col-5" type="text" name="name">
 
     <label class="col-5" for="breed">Ras</label>
-    <input class="col-5" type="text" name="breed">
+    <select class="col-5" name="breed" id="breed">
+        <?php foreach ($breeds as $breed) { ?>
+            <option value="<?php echo $breed["id"] ?>"><?php echo $breed["breed"] ?></option>
+        <?php } ?>
+    </select>
+    <!-- <input class="col-5" type="text" name="breed"> -->
 
     <label class="col-5" for="age">Leeftijd</label>
     <input class="col-5" type="text" name="age">
