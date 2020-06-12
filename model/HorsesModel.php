@@ -3,7 +3,10 @@
 function getAllHorses() {
 	$db = openDatabaseConnection();
 
-	$query = $db->prepare("SELECT * FROM horses");
+	$query = $db->prepare("SELECT breeds.*, horses.*
+                           FROM horses
+                           INNER JOIN breeds
+                                ON breeds.id = horses.breed_id");
 	$query->execute();
 
 	$db = null;
@@ -11,10 +14,23 @@ function getAllHorses() {
 	return $query->fetchAll();
 }
 
+function getAllBreeds() {
+    $conn = openDatabaseConnection();
+
+    $query = $conn->prepare("SELECT * FROM breeds");
+    $query->execute();
+
+    return $query->fetchAll();
+}
+
 function getHorse($id) {
     $conn = openDatabaseConnection();
 
-    $query = $conn->prepare("SELECT * FROM horses WHERE id = :id");
+    $query = $conn->prepare("SELECT breeds.*, horses.*
+                             FROM horses
+                             INNER JOIN breeds
+                                ON breeds.id = horses.breed_id
+                             WHERE horses.id = :id");
     $query->bindParam(":id", $id);
     $query->execute();
 
@@ -24,7 +40,7 @@ function getHorse($id) {
 function createHorse($data) {
     $conn = openDatabaseConnection();
 
-    $query = $conn->prepare("INSERT INTO horses (name, breed, age, height, show_jumping)
+    $query = $conn->prepare("INSERT INTO horses (name, breed_id, age, height, show_jumping)
                                 VALUES (:name, :breed, :age, :height, :showjumping)");
     $query->bindParam(":name", $data["name"]);
     $query->bindParam(":breed", $data["breed"]);
@@ -41,7 +57,7 @@ function updateHorse($data, $id) {
     $query = $conn->prepare("UPDATE horses
                              SET name = :name,
                                  age = :age,
-                                 breed = :breed,
+                                 breed_id = :breed,
                                  height = :height,
                                  show_jumping = :showjumping
                              WHERE id = :id");

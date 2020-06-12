@@ -3,13 +3,18 @@
 require(ROOT . "model/HorsesModel.php");
 
 function index() {
-    $horses = getAllHorses();
-	render("horses/index", array("horses" => $horses));
+	$horses = getAllHorses();
+	$breeds = getAllBreeds();
+	render("horses/index", array(
+		"horses" => $horses,
+		"breeds" => $breeds
+	));
 }
 
 function create() {
 	// view naar registratie pagina
-	render("horses/create");
+	$breeds = getAllBreeds();
+	render("horses/create", (array("breeds" => $breeds)));
 }
 
 function store() {
@@ -18,8 +23,12 @@ function store() {
 }
 
 function edit($id) {
-    $horse = getHorse($id);
-    render("horses/update", array("horse" => $horse));
+	$horse = getHorse($id);
+	$breeds = getAllBreeds();
+    render("horses/update", array(
+		"horse" => $horse,
+		"breeds" => $breeds
+	));
 }
 
 function update($id) {
