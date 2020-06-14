@@ -1,4 +1,11 @@
-<h1 class="col-12">Ruiter gegevens verwijderen</h1>
-<p class="col-12">Gegevens van <?php echo $user["first_name"] ?> verwijderen.</p>
-<a class="btn btn-danger text-white rounded-0" href="<?php echo URL ?>users/destroy/<?php echo $user["id"] ?>">Verwijder!</a>
-<a class="btn btn-custom-blue text-white rounded-0" href="<?php echo URL ?>users/index">Nee, toch niet!</a>
+<div class="container">
+    <h1>Ruiter gegevens verwijderen</h1>
+    <p>
+        U staat op het punt de gegevens van de ruiter <span class="font-weight-bold"> <?php echo $user["full_name"] ?> </span> te verwijderen. <br>
+        Weet u het zeker?
+    </p>
+
+    <a class="my-2 btn btn-secondary rounded-0" href="<?php echo URL ?>users/index">Annuleren!</a>
+    <a class="my-2 btn btn-danger rounded-0" href="<?php echo URL ?>users/destroy/<?php echo $user["id"] ?>" onClick="javascript: return confirm('Zeker weten?');">Verwijderen!</a>
+
+</div>
