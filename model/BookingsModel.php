@@ -34,32 +34,44 @@ function getBooking($id) {
 }
 
 function createBooking($data) {
+    // prijs berekenen per uur
+    $price = ($data["endtime"] - $data["starttime"]) * 55;
+
     $conn = openDatabaseConnection();
 
-    $query = $conn->prepare("INSERT INTO bookings (user_id, horse_id, time, date)
-                             VALUES (:user, :horse, :time, :date)");
+    $query = $conn->prepare("INSERT INTO bookings (user_id, horse_id, starttime, endtime, date, price)
+                             VALUES (:user, :horse, :starttime, :endtime, :date, :price)");
     $query->bindParam(":user", $data["user"]);
     $query->bindParam(":horse", $data["horse"]);
-    $query->bindParam(":time", $data["time"]);
+    $query->bindParam(":starttime", $data["starttime"]);
+    $query->bindParam(":endtime", $data["endtime"]);
     $query->bindParam(":date", $data["date"]);
+    $query->bindParam(":price", $price);
 
     $query->execute();
 }
 
 function updateBooking($data, $id) {
+    // prijs berekenen per uur
+    $price = ($data["endtime"] - $data["starttime"]) * 55;
+
     $conn = openDatabaseConnection();
 
     $query = $conn->prepare("UPDATE bookings
                              SET user_id = :user,
                                  horse_id = :horse,
-                                 time = :time,
-                                 date = :date
+                                 starttime = :starttime,
+                                 endtime = :endtime,
+                                 date = :date,
+                                 price = :price
                              WHERE id = :id");
     $query->bindParam(":id", $id);
     $query->bindParam(":user", $data["user"]);
     $query->bindParam(":horse", $data["horse"]);
-    $query->bindParam(":time", $data["time"]);
+    $query->bindParam(":starttime", $data["starttime"]);
+    $query->bindParam(":endtime", $data["endtime"]);
     $query->bindParam(":date", $data["date"]);
+    $query->bindParam(":price", $price);
 
     $query->execute();
 }
