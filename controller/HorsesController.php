@@ -19,7 +19,7 @@ function create() {
 
 function store() {
 	createHorse($_POST);
-	header("Location: " . URL);
+	header("Location: " . URL . "horses/index");
 }
 
 function edit($id) {
@@ -33,7 +33,7 @@ function edit($id) {
 
 function update($id) {
     updateHorse($_POST, $id);
-    header("Location: " . URL);
+    header("Location: " . URL . "horses/index");
 }
 
 function delete($id) {
@@ -43,5 +43,5 @@ function delete($id) {
 
 function destroy($id) {
 	deleteHorse($id);
-	header("Location: " . URL);
+	header("Location: " . URL . "horses/index");
 }

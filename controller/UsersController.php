@@ -13,7 +13,7 @@ function create() {
 
 function store() {
 	createUser($_POST);
-	header("Location: " . URL);
+	header("Location: " . URL . "users/index");
 }
 
 function edit($id) {
@@ -23,7 +23,7 @@ function edit($id) {
 
 function update($id) {
 	updateUser($_POST, $id);
-	header("Location: " . URL);
+	header("Location: " . URL . "users/index");
 }
 
 function delete($id) {
@@ -33,5 +33,5 @@ function delete($id) {
 
 function destroy($id) {
 	deleteUser($id);
-	header("Location: " . URL);
+	header("Location: " . URL . "users/index");
 }

@@ -27,7 +27,7 @@ function create() {
 
 function store() {
     createBooking($_POST);
-    header("Location: " . URL);
+    header("Location: " . URL . "bookings/index");
 }
 
 function edit($id) {
@@ -44,7 +44,7 @@ function edit($id) {
 
 function update($id) {
 	updateBooking($_POST, $id);
-	header("Location: " . URL);
+	header("Location: " . URL . "bookings/index");
 }
 
 function delete($id) {
@@ -55,5 +55,5 @@ function delete($id) {
 
 function destroy($id) {
 	deleteBooking($id);
-	header("Location: " . URL);
+	header("Location: " . URL . "bookings/index");
 }
