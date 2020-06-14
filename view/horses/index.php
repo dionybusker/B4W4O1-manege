@@ -3,7 +3,7 @@
 <div class="row col-12 justify-content-center">
     <?php foreach ($horses as $horse) { ?>
         <ul class="col-3 card navbar-nav m-2 p-0">
-            <li><img class="col-12" src="<?php echo URL ?>public/img/<?php echo $horse["img"] ?>" alt="<?php echo $breeds["breed"] ?>"></li>
+            <li><img class="col-12" src="<?php echo URL ?>public/img/<?php echo $horse["img"] ?>" alt="<?php echo $horse["breed"] ?>"></li>
             <li>Naam: <?php echo $horse["name"] ?></li>
             <li>Leeftijd: <?php echo $horse["age"] ?></li>
             <li>Ras: <?php echo $horse["breed"] ?></li>
