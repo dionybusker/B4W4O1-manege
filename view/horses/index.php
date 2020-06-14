@@ -1,19 +1,43 @@
-<a class="btn btn-outline-dark" href="<?php echo URL ?>horses/create">Paard toevoegen</a>
+<div class="col-3 m-2 p-0">
+    <a class="col-12 btn btn-custom-blue text-white rounded-0" href="<?php echo URL ?>horses/create">Paard toevoegen</a>
+</div>
 
-<div class="row col-12 justify-content-center">
-    <?php foreach ($horses as $horse) { ?>
-        <ul class="col-3 card navbar-nav m-2 p-0">
-            <li><img class="col-12" src="<?php echo URL ?>public/img/<?php echo $horse["img"] ?>" alt="<?php echo $horse["breed"] ?>"></li>
-            <li>Naam: <?php echo $horse["name"] ?></li>
-            <li>Leeftijd: <?php echo $horse["age"] ?></li>
-            <li>Ras: <?php echo $horse["breed"] ?></li>
-            <li>Schofthoogte: <?php echo $horse["height"] ?> cm</li>
-            <li>Geschikt voor springsport: <?php echo $horse["show_jumping"] ?></li> <br>
-            <li class="row m-0 p-0">
-                <a class="col-6 m-0 p-0 btn btn-info rounded-0" href="<?php echo URL ?>horses/edit/<?php echo $horse["id"] ?>">Gegevens bewerken</a>
-                <a class="col-6 m-0 p-0 btn btn-danger rounded-0" href="<?php echo URL ?>horses/delete/<?php echo $horse["id"] ?>">Gegevens verwijderen</a>
-            </li>
+<div class="row col-9 justify-content-center">
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Naam</th>
+            <th>Leeftijd</th>
+            <th>Ras</th>
+            <th>Schofthoogte</th>
+            <th>Springsport</th>
+        </tr>
+        <?php foreach ($horses as $horse) { ?>
+            <tr>
+                <td>
+                    <a href="<?php echo URL ?>public/img/<?php echo $horse["img"] ?>" target="_blank" title="<?php echo $horse["breed"] ?>">
+                    <img class="img-fluid" src="<?php echo URL ?>public/img/<?php echo $horse["img"] ?>" alt="<?php echo $horse["breed"] ?>">
 
-        </ul>
-    <?php } ?>
+                    </a>
+                </td>
+                <td><?php echo $horse["name"] ?></td>
+                <td><?php echo $horse["age"] ?></td>
+                <td><?php echo $horse["breed"] ?></td>
+                <td><?php echo $horse["height"] ?> cm</td>
+                <td><?php echo $horse["show_jumping"] ?></td>
+                <td>
+                    <a class="p-1 btn btn-secondary rounded-0" href="<?php echo URL ?>horses/edit/<?php echo $horse["id"] ?>">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="p-1 btn btn-danger rounded-0" href="<?php echo URL ?>horses/delete/<?php echo $horse["id"] ?>">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+
+        <?php } ?>
+    </table>
+
 </div>
