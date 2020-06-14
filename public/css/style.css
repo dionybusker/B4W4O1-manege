@@ -1,3 +1,8 @@
 /* body {
     background-color: black !important;
 } */
+
+.bg-custom-blue, .btn-custom-blue { background-color: #15222B; }
+.btn-custom-blue:hover { background-color: #2B4252; }
+.bg-custom-red, .btn-custom-red { background-color: #4A0707; }
+.btn-custom-red:hover { background-color: #630C0C; }
