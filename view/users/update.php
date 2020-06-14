@@ -1,4 +1,4 @@
-<h1>Bezoeker gegevens wijzigen</h1>
+<h1>Ruiter gegevens wijzigen</h1>
 
 <form name="update" action="<?php echo URL ?>users/update/<?php echo $user["id"] ?>" method="POST">
     <label for="name">Voornaam</label>

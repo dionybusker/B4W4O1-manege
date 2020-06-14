@@ -1,4 +1,4 @@
-<a class="btn btn-outline-dark" href="<?php echo URL ?>users/create">Bezoeker registreren</a>
+<a class="btn btn-custom-blue text-white rounded-0" href="<?php echo URL ?>users/create">Ruiter registreren</a>
 
 <div class="row col-12 justify-content-center">
     <?php foreach ($users as $user) { ?>
