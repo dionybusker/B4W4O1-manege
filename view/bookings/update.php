@@ -19,9 +19,14 @@
         <?php } ?>
     </select>
 
-    <label class="col-5" for="time">Welke tijd?</label>
-    <input class="col-2" type="time" name="time" value="<?php echo $booking["time"] ?>">
-    <input class="col-3" type="date" name="date" value="<?php echo $booking["date"] ?>">
+    <label class="col-5" for="starttime">Starttijd</label>
+    <input class="col-5" type="time" name="starttime" value="<?php echo $booking["starttime"] ?>"> uur
 
-	<input class="btn btn-info" type="submit" name="update" value="Update">
+    <label class="col-5" for="starttime">Eindtijd</label>
+    <input class="col-5" type="time" name="endtime" value="<?php echo $booking["endtime"] ?>"> uur
+
+    <label class="col-5" for="date"></label>
+    <input class="col-5" type="date" name="date" value="<?php echo $booking["date"] ?>">
+
+	<input class="col-5 btn btn-info" type="submit" name="update" value="Update">
 </form>

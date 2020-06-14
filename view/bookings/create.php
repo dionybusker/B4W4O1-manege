@@ -1,7 +1,7 @@
 <h2>Reservering maken</h2>
 
 <form class="col-12" action="<?php echo URL ?>bookings/store" method="POST">
-    <label class="col-5" for="user">Bezoeker</label>
+    <label class="col-5" for="user">Ruiter</label>
     <select class="col-5" name="user" id="user">
         <?php foreach ($users as $user) { ?>
             <option value="<?php echo $user["id"] ?>"><?php echo $user["first_name"] ?></option>
@@ -15,9 +15,14 @@
         <?php } ?>
     </select>
 
-    <label class="col-5" for="time">Welke tijd?</label>
-    <input class="col-2" type="time" name="time">
-    <input class="col-3" type="date" name="date">
+    <label class="col-5" for="starttime">Starttijd</label>
+    <input class="col-5" type="time" name="starttime" required> uur
+
+    <label class="col-5" for="starttime">Eindtijd</label>
+    <input class="col-5" type="time" name="endtime" required> uur
+
+    <label class="col-5" for="date">Datum</label>
+    <input class="col-5" type="date" name="date" required>
 
     <input class="col-5" type="submit" value="Maak reservering!">
 
