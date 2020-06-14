@@ -1,19 +1,21 @@
-<h2>Registreren</h2>
+<div class="container">
+    <h2>Registreren</h2>
 
-<form class="col-12" action="<?php echo URL ?>users/store" method="POST">
-    <label class="col-5" for="name">Naam</label>
-    <input class="col-5" type="text" name="name" required>
+    <form class="my-2 p-0" action="<?php echo URL ?>users/store" method="POST">
+        <label class="col-5" for="name">Naam</label>
+        <input class="col-5" type="text" name="name" required>
 
-    <label class="col-5" for="fullname">Volledige naam</label>
-    <input class="col-5" type="text" name="fullname" required>
+        <label class="col-5" for="fullname">Volledige naam</label>
+        <input class="col-5" type="text" name="fullname" required>
 
-    <label class="col-5" for="address">Adres</label>
-    <input class="col-5" type="text" name="address" required>
+        <label class="col-5" for="address">Adres</label>
+        <input class="col-5" type="text" name="address" required>
 
-    <label class="col-5" for="phone">Telefoonnummer</label>
-    <input class="col-5" type="text" name="phone" required>
+        <label class="col-5" for="phone">Telefoonnummer</label>
+        <input class="col-5" type="text" name="phone" required>
 
-    <input class="col-5" type="submit" value="Registreren!">
+        <input class="col-5 m-2 btn btn-custom-blue text-white rounded-0" type="submit" value="Registreren!">
 
 
-</form>
+    </form>
+</div>
