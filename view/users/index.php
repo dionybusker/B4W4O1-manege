@@ -9,6 +9,8 @@
             <th>Volledige naam</th>
             <th>Adres</th>
             <th>Tel. nummer</th>
+            <th></th>
+            <th></th>
         </tr>
         <?php foreach ($users as $user) { ?>
             <tr>

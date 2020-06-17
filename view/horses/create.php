@@ -2,7 +2,7 @@
     <h2>Paard toevoegen</h2>
 
     <form class="my-2 p-0" action="<?php echo URL ?>horses/store" method="POST">
-        <label class="col-5" for="name">Naam</label>
+        <label class="col-5">Naam</label>
         <input class="col-5" type="text" name="name" required>
 
         <label class="col-5" for="breed">Ras *</label>
@@ -12,13 +12,13 @@
             <?php } ?>
         </select>
 
-        <label class="col-5" for="age">Leeftijd</label>
+        <label class="col-5">Leeftijd</label>
         <input class="col-5" type="text" name="age" required>
 
-        <label class="col-5" for="height">Schofthoogte in cm</label>
+        <label class="col-5">Schofthoogte in cm</label>
         <input class="col-5" type="text" name="height" required>
 
-        <label class="col-5" for="showjumping">Geschikt voor springsport? (ja/nee)</label>
+        <label class="col-5">Geschikt voor springsport? (ja/nee)</label>
         <input class="col-5" type="text" name="showjumping" required>
 
         <input class="col-5 m-2 btn btn-custom-blue text-white rounded-0" type="submit" value="Voeg toe!">

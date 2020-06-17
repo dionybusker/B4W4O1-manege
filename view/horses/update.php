@@ -2,10 +2,10 @@
 	<h1>Paard gegevens wijzigen</h1>
 
 	<form class="my-2 p-0" name="update" action="<?php echo URL ?>horses/update/<?php echo $horse["id"] ?>" method="POST">
-		<label class="col-5" for="name">Naam</label>
+		<label class="col-5">Naam</label>
 		<input class="col-5" id="name" name="name" type="text" value="<?php echo $horse["name"] ?>"> <br>
 
-		<label class="col-5" for="age">Leeftijd</label>
+		<label class="col-5">Leeftijd</label>
 		<input class="col-5" id="age" name="age" type="text" value="<?php echo $horse["age"] ?>"> <br>
 
 		<label class="col-5" for="breed">Ras *</label>
@@ -17,10 +17,10 @@
 			<?php } ?>
 		</select>
 
-		<label class="col-5" for="height">Schofthoogte</label>
+		<label class="col-5">Schofthoogte</label>
 		<input class="col-5" id="height" name="height" type="text" value="<?php echo $horse["height"] ?>"> <br>
 
-		<label class="col-5" for="showjumping">Geschikt voor springsport (ja/nee)</label>
+		<label class="col-5">Geschikt voor springsport (ja/nee)</label>
 		<input class="col-5" id="showjumping" name="showjumping" type="text" value="<?php echo $horse["show_jumping"] ?>"> <br>
 
 		<input class="col-5 m-2 btn btn-custom-blue text-white rounded-0" type="submit" name="update" value="Updaten!">

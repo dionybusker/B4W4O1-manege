@@ -11,6 +11,8 @@
             <th>Ras</th>
             <th>Schofthoogte</th>
             <th>Springsport</th>
+            <th></th>
+            <th></th>
         </tr>
         <?php foreach ($horses as $horse) { ?>
             <tr>

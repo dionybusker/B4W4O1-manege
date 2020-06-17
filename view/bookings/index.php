@@ -11,6 +11,8 @@
             <th>Eindtijd</th>
             <th>Datum</th>
             <th>Totaalprijs</th>
+            <th></th>
+            <th></th>
         </tr>
         <?php foreach ($bookings as $booking) { ?>
             <tr>
